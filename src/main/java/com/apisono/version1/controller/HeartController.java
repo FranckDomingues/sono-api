@@ -10,7 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/heart")
 public class HeartController {
+    /*private final HeartCreateDTO heartcreate;
 
+      @Autowired
+      public HeartController(HeartCreateDTO heartcreate){
+        this.heartcreate = heartcreate;
+      }
+      @RequestMapping
+      public ResponseEntity<Iterable<HeartCreateDTO>> getHeart(){
+        return ResponseEntity.ok(HeartCreateDTO.findAll());
+      }
+     */
 
     @PostMapping
     public ResponseEntity<HeartCreateDTO> createHeart(@RequestBody HeartCreateDTO heartCreateDTO){
