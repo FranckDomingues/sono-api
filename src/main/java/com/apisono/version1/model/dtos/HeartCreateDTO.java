@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class HeartCreateDTO {
-    private List<HeartZonesDTO> heartZones=new ArrayList<>();
-    private LocalDate date;
+public class HeartCreateDTO { //2 Atributos
+    private List<HeartZonesDTO> heartZones=new ArrayList<>(); //Lista
+    private LocalDate date; //Data
 }
 @Data
 class HeartZonesDTO {
