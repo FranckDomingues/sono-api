@@ -14,7 +14,7 @@ public class HeartController {
 
       @Autowired
       public HeartController(HeartCreateDTO heartcreate){
-        this.heartcreate = heartcreate;
+        this.heartcreate = heartcreate; ou this.heartcreate = heartZones;
       }
       @RequestMapping
       public ResponseEntity<Iterable<HeartCreateDTO>> getHeart(){
