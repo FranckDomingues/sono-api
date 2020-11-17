@@ -28,17 +28,17 @@ public class Inicializacao implements ApplicationListener<ContextRefreshedEvent>
         User user=User.builder()
                 .username("user")
                 .password("12345")
-                .biometrics(new ArrayList<>())
+                .hearts(new ArrayList<>())
                 .build();
 
-        Biometric biometric=Biometric.builder()
+   /*     Biometric biometric=Biometric.builder()
                 .heartRate(80)
                 .sleepStage(SleepStage.ASLEEP)
                 .timestamp(LocalDateTime.now())
                 .user(user)
                 .build();
 
-        user.getBiometrics().add(biometric);
+        user.getHearts().add(biometric);*/
 
         userRepository.save(user);
     }
