@@ -1,31 +1,30 @@
-package com.apisono.version1.model.dtos;
+package com.apisono.version1.model;
 
-import com.apisono.version1.model.SleepStage;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
-public class SleepCreateDTO {
-    private List<SleepDataDTO> sleepData=new ArrayList<>();
-    private SleepStageDTO stages;
-    private int totalMinutesAsleep;
-    private int totalTimeInBed;
-    private LocalDateTime date;
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
+public class SleepData {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-}
-@Data
-class SleepStageDTO {
-    private int deep;
-    private int light;
-    private int rem;
-    private int wake;
-}
-@Data
-class SleepDataDTO {
+    @ManyToOne
+    private Sleep sleep;
+
     private int awakeCount;
     private int awakenDuration;
     private int awakeningsCount;
@@ -43,5 +42,4 @@ class SleepDataDTO {
     private int restlessDuration;
     private LocalDate startTime;
     private int timeInBed;
-
 }
