@@ -30,7 +30,7 @@ public class Sleep  {
     @OneToMany(mappedBy = "sleep",cascade = CascadeType.ALL)
     private List<SleepData> sleepDataList =new ArrayList<>();
 
-    public void addsleepZone(SleepData sleepData){
+    public void addSleepZone(SleepData sleepData){
         this.sleepDataList.add(sleepData);
     }
 }

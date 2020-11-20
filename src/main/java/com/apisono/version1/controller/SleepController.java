@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class SleepController {
  @RequestMapping
       public ResponseEntity<Iterable<Sleep>> getSleep(){
         return ResponseEntity.ok(sleepRepository.findAll());
- }
+      }
 
 
     @PostMapping
@@ -37,7 +38,7 @@ public class SleepController {
         //System.out.println(sleepCreateDTO);
 
         Sleep sleep=Sleep.builder()
-                .date(sleepCreateDTO.getDate().toLocalDate())
+                .date(LocalDate.from(sleepCreateDTO.getDate()))
                 .user(userRepository.findById(1L).get())
                 .build();
 
