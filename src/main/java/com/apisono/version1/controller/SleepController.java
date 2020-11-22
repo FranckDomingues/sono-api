@@ -46,16 +46,18 @@ public class SleepController {
                 sleepCreateDTO.getSleepData().stream().map(
                         sleepDataDTO -> SleepData.builder()
                      .sleep(sleep)
+                                //as classes SleepDataDTO e SleepStageDTO precisam ser públicas
                      .awakeCount(sleepDataDTO.getAwakeCount())
                      .awakeningsCount(sleepDataDTO.getAwakeningsCount())
                      .awakenDuration(sleepDataDTO.getDuration())
-                     .build()).collect(Collectors.toList()
+                     .build()
+                ).collect(Collectors.toList()
                 )
 
         );
 
 
-        return ResponseEntity.ok(sleepRespository.save(sleep));
+        return ResponseEntity.ok(sleepRepository.save(sleep));
     }
 
 }
