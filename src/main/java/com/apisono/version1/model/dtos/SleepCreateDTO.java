@@ -9,11 +9,13 @@ import java.util.List;
 
 @Data
 public class SleepCreateDTO {
-    private List<SleepDataDTO> sleepData=new ArrayList<>();
-    private SleepStageDTO stages;
-    private int totalMinutesAsleep;
-    private int totalTimeInBed;
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy mm:HH")
-    private LocalDateTime date;
+//    private List<SleepDataDTO> sleepData=new ArrayList<>();
+//    private SleepStageDTO stages;
+//    private int awakeCount;
+//    private int totalMinutesAsleep;
+//    private int totalTimeInBed;
+////    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyyTmm:HH")
+//    private LocalDateTime startTime;
+    private List<SleepDataDTO> sleep;
 
 }

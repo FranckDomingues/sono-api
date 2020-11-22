@@ -23,7 +23,6 @@ public class Sleep  {
     private Long id;
 
     @ManyToOne
-    //@Transient
     private User user;
 
     private LocalDate date;
@@ -32,5 +31,6 @@ public class Sleep  {
 
     public void addSleepData(SleepData sleepData){
         this.sleepDataList.add(sleepData);
+        sleepData.setSleep(this);
     }
 }

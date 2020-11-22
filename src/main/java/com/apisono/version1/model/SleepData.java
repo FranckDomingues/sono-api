@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,12 +30,13 @@ public class SleepData {
     private int awakeCount;
     private int awakenDuration;
     private int awakeningsCount;
-    private LocalDateTime dateOfSleep;
+    private LocalDate dateOfSleep;
     private int duration;
     private int efficiency;
     private boolean isMainSleep;
     private int idLog;
-    private LocalDateTime minuteData; //esta é uma lista de muitos dataTime não sei que atribuir
+    @OneToMany(mappedBy = "sleepData",cascade = CascadeType.ALL)
+    private List<SleepMinuteData> minuteData=new ArrayList<>(); //esta é uma lista de muitos dataTime não sei que atribuir
     private int minutesAfterWakeup;
     private int minutesAsleep;
     private int minutesAwake;
@@ -42,4 +45,9 @@ public class SleepData {
     private int restlessDuration;
     private LocalDate startTime;
     private int timeInBed;
+
+    public void addSleepMinuteData(SleepMinuteData sleepMinuteData){
+        minuteData.add(sleepMinuteData);
+        sleepMinuteData.setSleepData(this);
+    }
 }
