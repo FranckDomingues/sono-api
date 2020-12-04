@@ -31,7 +31,30 @@ public class QuestionController {
     }
   @RequestMapping
         public ResponseEntity<Iterable<Questions>> getQuestions() {
+            return ResponseEntity.ok(questionRepository.findAll());
+    }
+    @PostMapping
+    public ResponseEntity<Questions> createQuestion(@RequestBody QuestionCreateDTO questionCreateDTO){
+        //
 
-  }
+        Questions questions=Questions.builder()
+                          .date(questionCreateDTO.getQuestions().get(0).getStartTime())
+                          .user(userRepository.findById(1L).get())
+                          .questionDataList(new ArrayList<>())
+                          .build();
+        questionCreateDTO.getQuestions().forEach(questionDataDTO ->{
+                QuestionData questionData= QuestionData.builder()
+                        //.
+                        .build();
+        questionDataDTO.getQuestionResults().forEach(questionResultDataDTO ->
+            {
+                QuestionResults questionResultData=QuestionResults.builder()
+                        .build();
+                questionData.addQuestionResultData(questionResultData);
+            }
+        );
+      questions.addQuestionData(questionData);
+    //questions.
+    }
 
 }

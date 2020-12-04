@@ -1,4 +1,7 @@
 package com.apisono.version1.repository;
 
-public interface QuestionRepository {
+import com.apisono.version1.model.Questions;
+import org.springframework.data.repository.CrudRepository;
+
+public interface QuestionRepository extends CrudRepository<Question,Long> {
 }
