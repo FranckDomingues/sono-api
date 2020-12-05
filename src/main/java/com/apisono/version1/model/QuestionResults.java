@@ -27,6 +27,6 @@ public class QuestionResults {
     @ManyToOne
     private Questions questions;
 
-    private int score1;
+    private int score1;//assim esta declarada na APP, mas nao tenho a certeza se deve ser este o que queremos
 
 }
