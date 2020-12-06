@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
-public class Questions {
+public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +28,6 @@ public class Questions {
     private User user;
 
     private LocalDate date;
-    @OneToMany(mappedBy = "questions",cascade = CascadeType.ALL)
-    private List<Questions> questionsList =new ArrayList<>();
 
-    public void addQuestions(Questions questions){
-        this.questionsList.add(questions);
-        questions.setQuestions(this);
-    }
+    private String score;//assim esta declarada na APP, mas nao tenho a certeza se deve ser este o que queremos
 }

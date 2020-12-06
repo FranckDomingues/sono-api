@@ -1,6 +1,5 @@
 package com.apisono.version1;
 
-import com.apisono.version1.model.Biometric;
 import com.apisono.version1.model.SleepStage;
 import com.apisono.version1.model.User;
 import com.apisono.version1.repository.UserRepository;

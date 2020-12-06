@@ -22,5 +22,9 @@ public class User {
     private String password;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Heart> hearts=new ArrayList<>();
-    //public User(){}
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Question> questions=new ArrayList<>();
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Sleep> sleeps=new ArrayList<>();
+
 }
